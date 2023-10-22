@@ -1,0 +1,33 @@
+
+    <head>
+        <title> To Do List</title>
+        <link rel="stylesheet" href="/styles/style.css">
+    </head>
+    <body>
+        
+        <h1><%= title %></h1>
+        <br>
+        <div class="list">    
+                <% for(let i=0;i<list.length;i++) {  %>
+                    <div class="item">
+                        <form action="/delete" method="post">
+                            <input type="checkbox" value="<%= list[i]._id %>" name="checked" onChange="this.form.submit()">
+                            <p><%= list[i].name %></p>
+                            <input type="hidden" name="listtype" value="<%= title %>">
+                        </form>
+                    </div>
+                <% } %>
+    
+                <form action="/" , method="post" class="submit">
+                    <input type="text" name="newTask" placeholder="New Task">
+                    <button type="submit" name="listName" value="<%= title %>">+</button>
+                </form>
+        </div>
+    </body>
+    
+    <footer>
+       <p>@copyright_ andivy</p>
+    </footer>
+    
+    
+    
